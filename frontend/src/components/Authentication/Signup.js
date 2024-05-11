@@ -57,7 +57,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+        "https://chat-app-knhs.onrender.com/api/user",
         {
           name,
           email,
@@ -108,10 +108,13 @@ const Signup = () => {
       data.append("file", pics);
       data.append("upload_preset", "chat-app");
       data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
-        method: "post",
-        body: data,
-      })
+      fetch(
+        "https:/https://chat-app-knhs.onrender.com/api.cloudinary.com/v1_1/piyushproj/image/upload",
+        {
+          method: "post",
+          body: data,
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setPic(data.url.toString());
